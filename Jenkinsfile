@@ -59,6 +59,29 @@ pipeline {
 sh 'mvn deploy -e'                      }
                    }         
          }
+	 stage('Building our image') {
+  steps {
+               
+sh 'docker build -t houssemsy/tpachatproject .'
+               
+            }
+        }
+	    
+   stage('Docker compose') {
+             
+             
+            steps {
+               
+            sh 'docker-compose up -d'
+               
+            }
+        }   
+	    
+	    
+	    
+	    
+	    
+	    
      }
 	post {
          always {
