@@ -38,6 +38,18 @@ pipeline {
                       }
                    }        
          }
+	 stage('SONAR') {
+            steps {
+               
+              script {
+		
+                   
+                  sh 'mvn sonar:sonar  -Dsonar.sources=src/main/java -Dsonar.css.node=. -Dsonar.java.binaries=. -Dsonar.host.url=http://192.168.0.101:9000/ -Dsonar.login=admin   -Dsonar.password=sonar'
+
+ 
+                      }
+                   }         
+         }
          
        
      }
