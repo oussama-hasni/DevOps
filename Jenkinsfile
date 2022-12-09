@@ -1,10 +1,7 @@
 pipeline {
     agent any
 	
- environment {
-        registryCredential = 'dockerhub'
-        registry = "houssemsy/tpachatproject"
-    }
+
 
     stages {
         stage('Getting the project from GIT') {
@@ -141,11 +138,11 @@ sh 'docker build -t houssemsy/tpachatproject .'
         }
          success {
             emailext attachLog: true, body: '''End of Pipeline
-            Finished: SUCCESS''', subject: '#Success', to: 'houssemsayehi90@gmail.com'
+            Finished: SUCCESS''', subject: '#Success', to: 'oussama.hasni1@esprit.tn'
          }
          failure  {
             emailext attachLog: true, body: '''End of Pipeline
-            Finished: FAILURE''', subject: '#Failure', to: 'houssemsayehi90@gmail.com'
+            Finished: FAILURE''', subject: '#Failure', to: 'oussama.hasni1@esprit.tn'
          }
      
     }
