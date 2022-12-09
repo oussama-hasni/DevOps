@@ -4,12 +4,7 @@ pipeline {
 
 
     stages {
-        stage('Getting the project from GIT') {
-            steps {
-               echo 'Test';
-            }
-        }
-        
+      
         stage('MVN CLEAN') {
             steps {
                
