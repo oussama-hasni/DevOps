@@ -62,7 +62,7 @@ sh 'mvn deploy -e'                      }
 	 stage('Building our image') {
   steps {
                
-sh 'docker build -t houssemsy/tpachatproject .'
+sh 'docker build -t oussamahasni/ExamThourayaS2 .'
                
             }
         }
