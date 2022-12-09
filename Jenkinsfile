@@ -50,6 +50,18 @@ pipeline {
                       }
                    }         
          }
+	    
+	     stage('MVN package') {
+            steps {
+                script {
+                    
+                sh 'mvn package'  
+                }
+
+		        
+            } 
+           
+        }
          
         stage('nexus') {
             steps {
