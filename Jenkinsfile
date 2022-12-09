@@ -51,7 +51,14 @@ pipeline {
                    }         
          }
          
-       
+        stage('nexus') {
+            steps {
+               
+              script {
+
+sh 'mvn deploy -e'                      }
+                   }         
+         }
      }
 	post {
          always {
