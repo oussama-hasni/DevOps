@@ -81,7 +81,15 @@ sh 'docker build -t oussamahasni/examthouraya .'
                
             }
         }
-	    
+	 stage('Docker compose') {
+             
+             
+            steps {
+               
+            sh 'docker-compose up -d'
+               
+            }
+        }   
    
 	stage('Push Dockerhub') {
             steps {
