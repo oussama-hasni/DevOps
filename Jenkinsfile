@@ -91,7 +91,25 @@ sh 'docker build -t oussamahasni/ExamThourayaS2 .'
                
             }
         }   
-	    
+	stage('Push Dockerhub') {
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        sh "docker push $registry"
+                    }
+                    
+                }
+                
+            }
+            
+        }
+	    stage('Run Spring et MySQL Containers') {
+                                steps {
+                                    script {
+                                      sh ' docker-compose up -d '
+                                    }
+                                }
+                            }    
 	    
 	    
 	    
