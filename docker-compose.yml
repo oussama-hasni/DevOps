@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: oussamahasni/ExamThourayaS2
+    image: oussamahasni/examthouraya
     container_name: houssemspring
     restart: on-failure
     ports:
