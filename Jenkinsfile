@@ -3,7 +3,7 @@ pipeline {
 	
  environment {
         registryCredential = 'oussemaspring'
-        registry = "oussamahasni/ExamThourayaS2"
+        registry = "oussamahasni/examthouraya"
     }
 
     stages {
@@ -77,7 +77,7 @@ sh 'mvn deploy -e'                      }
 	 stage('Building our image') {
   steps {
                
-sh 'docker build -t oussamahasni/ExamThourayaS2 .'
+sh 'docker build -t oussamahasni/examthouraya .'
                
             }
         }
