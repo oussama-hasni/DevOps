@@ -1,7 +1,10 @@
 pipeline {
     agent any
 	
-
+ environment {
+        registryCredential = 'oussemaspring'
+        registry = "oussamahasni/ExamThourayaS2"
+    }
 
     stages {
       
