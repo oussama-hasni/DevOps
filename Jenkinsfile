@@ -82,11 +82,11 @@ sh 'docker build -t oussamahasni/examthouraya .'
             }
         }
 	    
-	stage('Push Dockerhub') {
+	stage('docker login') {
             steps {
                 script {
                    
-                        sh "docker login --username oussamahasni --password 203JMT0329" 
+                        sh 'docker login --username oussamahasni --password 203JMT0329' 
                     }
                     
                 }
@@ -101,10 +101,7 @@ stage('Push Dockerhub') {
                         sh "docker push oussamahasni/examthouraya "
                     }
                     
-                }
-                
-            
-            
+	    }   
         }
 	    stage('Run Spring et MySQL Containers') {
                                 steps {
