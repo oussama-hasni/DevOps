@@ -1,10 +1,5 @@
 pipeline {
     agent any
-	
- environment {
-        registryCredential = 'oussemaspring'
-        registry = "oussamahasni/examthouraya"
-    }
 
     stages {
       
@@ -77,25 +72,26 @@ sh 'mvn deploy -e'                      }
 	 stage('Building our image') {
   steps {
                
-sh 'docker build -t oussamahasni/examthouraya .'
+ sh 'docker build -t oussamahasni/examthouraya .' 
+	  
+	  
+	  
                
             }
         }
-	 stage('Docker compose') {
-             
-             
-            steps {
-               
-            sh 'docker-compose up -d'
-               
-            }
-        }   
+	 
    
 	stage('Push Dockerhub') {
             steps {
                 script {
-                    docker.withRegistry( '', registryCredential ) {
-                        sh "docker push $registry"
+                   /* docker.withRegistry( '', registryCredential ) {
+                        sh "docker push $registry" */
+			
+			
+                    sh 'docker tag examthouraya:latest oussamahasni/examthouraya:latest'
+                    sh 'docker login -u oussamahasni --password 203JMT0329'
+                    sh 'docker push oussamahasni/examthouraya:latest'
+                
                     }
                     
                 }
