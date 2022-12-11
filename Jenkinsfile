@@ -1,6 +1,11 @@
 pipeline {
     agent any
-
+	
+environment {
+        registryCredential = 'oussemaspring'
+        registry = "oussamahasni/examthouraya"
+    }
+	
     stages {
       
         stage('MVN CLEAN') {
@@ -70,30 +75,24 @@ sh 'mvn deploy -e'                      }
                    }         
          }
 	 stage('Building our image') {
-            steps {
-              script {
-                    img = docker.build("examthouraya:latest")
-                  }
-             }
-      }
+  steps {
+               
+sh 'docker build -t oussamahasni/examthouraya .'
+               
+            }
+        }
 	 
    
-	stage('Push Dockerhub') {
+stage('Push Dockerhub') {
             steps {
                 script {
-                   /* docker.withRegistry( '', registryCredential ) {
-                        sh "docker push $registry" */
-			
-			
-                    sh 'docker tag examthouraya:latest oussamahasni/examthouraya:latest'
-                    sh 'docker login -u oussamahasni --password 203JMT0329'
-                    sh 'docker push oussamahasni/examthouraya:latest'
-                
+                    docker.withRegistry( '', registryCredential ) {
+                        sh "docker push $registry"
                     }
                     
                 }
                 
-            
+            }
             
         }
 	    stage('Run Spring et MySQL Containers') {
