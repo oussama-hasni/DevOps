@@ -16,7 +16,7 @@ services:
     depends_on:
       - mysqldb
     image: oussamahasni/examthouraya
-    container_name: houssemspring
+    container_name: oussemaspring
     restart: on-failure
     ports:
       - "8083:8083"
