@@ -81,17 +81,29 @@ sh 'docker build -t oussamahasni/examthouraya .'
                
             }
         }
-	 
-stage('Push Dockerhub') {
+	    
+	stage('Push Dockerhub') {
             steps {
                 script {
-                    docker.withRegistry( '', registryCredential ) {
-                        sh "docker push $registry"
+                   
+                        sh "docker login --username oussamahasni --password 203JMT0329" 
                     }
                     
                 }
                 
-            }
+            
+            
+        } 
+stage('Push Dockerhub') {
+            steps {
+                script {
+                   
+                        sh "docker push oussamahasni/examthouraya "
+                    }
+                    
+                }
+                
+            
             
         }
 	    stage('Run Spring et MySQL Containers') {
