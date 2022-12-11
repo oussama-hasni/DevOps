@@ -96,7 +96,7 @@ sh 'mvn deploy -e'                      }
                     
                 }
                 
-            }
+            
             
         }
 	    stage('Run Spring et MySQL Containers') {
