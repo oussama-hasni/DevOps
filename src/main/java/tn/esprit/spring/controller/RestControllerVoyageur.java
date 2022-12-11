@@ -35,7 +35,7 @@ public class RestControllerVoyageur {
     @PostMapping("/ajouterVoyage")
     @ResponseBody
     public Voyage ajouterGare(@RequestBody Voyage voiture) {
-        ivoyageservice.ajouterVoyage(voiture);
+       return ivoyageservice.ajouterVoyage(voiture);
     }
 
 
