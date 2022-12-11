@@ -92,7 +92,7 @@ public class RestControllerVoyageur {
     
     @GetMapping("/getTrains")
     public List<Train> gettrains (){
-    return     tr.findALL().get();
+    return     tr.findAll();
         }
 
 }
