@@ -91,7 +91,7 @@ public class RestControllerVoyageur {
     }
     
     @GetMapping("/getTrains")
-    public List<Train> gettrains (){
+    public List<Train> gettrains(){
     return     tr.findAll();
         }
 
