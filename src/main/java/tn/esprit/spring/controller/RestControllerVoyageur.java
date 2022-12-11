@@ -90,9 +90,6 @@ public class RestControllerVoyageur {
         itrainservice.DesaffecterVoyageursTrain(nomGareDepart, nomGareArrivee, heureDepart);
     }
     
-    @GetMapping("/getTrains")
-    public List<Train> gettrains(){
-    return     tr.findAll();
-        }
+ 
 
 }
