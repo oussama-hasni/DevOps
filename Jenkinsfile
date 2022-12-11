@@ -70,10 +70,12 @@ sh 'mvn deploy -e'                      }
                    }         
          }
 	 stage('Building our image') {
- script {
+            steps {
+              script {
                     img = docker.build("examthouraya:latest")
-                }
-        }
+                  }
+             }
+      }
 	 
    
 	stage('Push Dockerhub') {
