@@ -24,6 +24,9 @@ public class RestControllerVoyageur {
 
     @Autowired
     ITrainService itrainservice;
+    
+     @Autowired
+    TrainRepository tr;
 
     @Autowired
     IVoyageurService iVoyageurservice;
@@ -86,5 +89,10 @@ public class RestControllerVoyageur {
     public void DesaffecterVoyageursTrain(@PathVariable("nomgdpt") Ville nomGareDepart, @PathVariable("nomgarr") Ville nomGareArrivee, @PathVariable("heuredept") double heureDepart) {
         itrainservice.DesaffecterVoyageursTrain(nomGareDepart, nomGareArrivee, heureDepart);
     }
+    
+    @GetMapping("/getTrains")
+    public List<Train> gettrains (){
+    return     tr.findALL().get();
+        }
 
 }
