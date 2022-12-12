@@ -1,10 +1,7 @@
 pipeline {
     agent any
 	
-environment {
-        registryCredential = 'oussemaspring'
-        registry = "oussamahasni/examthouraya"
-    }
+
 	
     stages {
       
