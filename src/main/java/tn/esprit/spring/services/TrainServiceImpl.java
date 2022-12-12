@@ -47,7 +47,7 @@ public class TrainServiceImpl implements ITrainService {
 
     public int TrainPlacesLibres(Ville nomGareDepart) {
         int cpt = 0;
-        int occ = 0;
+        int occ;
         List<Voyage> listvoyage = (List<Voyage>) voyageRepository.findAll();
         System.out.println("tailee" + listvoyage.size());
 
